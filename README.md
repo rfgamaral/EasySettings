@@ -27,10 +27,10 @@ Please refer to the documentation on the [wiki](https://github.com/rfgamaral/Eas
 
 Please refer to the [CHANGELOG](CHANGELOG.md) file for the full changelog details.
 
-## Credits
+## Thanks
 
   - [Stan Schultes](https://www.linkedin.com/in/stanschultes) for his XML parser library which helped me understand how to work with XML files.
-  - Betovsky from the [Portugal-a-Programar](http://www.portugal-a-programar.pt/) forum for some implementation ideas and generics help.
+  - Betovsky from the [Portugal-a-Programar](http://www.portugal-a-programar.pt) forum for some implementation ideas and generics help.
   - KeeperOfTheSoul from the IRC Freenode network for helping me with XSL transformations.
 
 ## License
