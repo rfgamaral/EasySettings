@@ -64,16 +64,16 @@ namespace RA.Library.EasySettings.Properties {
         ///   Looks up a localized string similar to &lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
         ///    &lt;xsl:template match=&quot;{0}&quot;&gt;
         ///        &lt;{0}&gt;
-        ///            &lt;xsl:apply-templates select=&quot;Section&quot;&gt;
+        ///            &lt;xsl:apply-templates select=&quot;Category&quot;&gt;
         ///                &lt;xsl:sort select=&quot;@Name&quot; data-type=&quot;text&quot; order=&quot;ascending&quot; /&gt;
         ///            &lt;/xsl:apply-templates&gt;
         ///        &lt;/{0}&gt;
         ///    &lt;/xsl:template&gt;
-        ///    &lt;xsl:template match=&quot;Section&quot;&gt;
-        ///        &lt;xsl:element name=&quot;Section&quot;&gt;
+        ///    &lt;xsl:template match=&quot;Category&quot;&gt;
+        ///        &lt;xsl:element name=&quot;Category&quot;&gt;
         ///            &lt;xsl:attribute name=&quot;Name&quot;&gt;
         ///                &lt;xsl:value-of select=&quot;@Name&quot; /&gt;
-        ///            &lt;/x [rest of string was truncated]&quot;;.
+        ///             [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string XslSettings {
             get {
