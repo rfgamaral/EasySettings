@@ -18,31 +18,22 @@ namespace RA.Library.EasySettings {
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class EasySettingsAttribute : Attribute {
 
-        #region Private Fields
-
-        private string categoryName;
-        private object defaultValue;
-
-        #endregion
-
         #region Internal Properties
 
         /*
          * The setting category name to use as XML node name.
          */
         internal string CategoryName {
-            get {
-                return categoryName;
-            }
+            get;
+            private set;
         }
 
         /*
          * The setting default value if none was available.
          */
         internal object DefaultValue {
-            get {
-                return defaultValue;
-            }
+            get;
+            private set;
         }
 
         #endregion
@@ -56,8 +47,8 @@ namespace RA.Library.EasySettings {
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         public EasySettingsAttribute(string categoryName, bool defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -67,8 +58,8 @@ namespace RA.Library.EasySettings {
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         public EasySettingsAttribute(string categoryName, byte defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -79,8 +70,8 @@ namespace RA.Library.EasySettings {
         /// <param name="defaultValue">The setting default value.</param>
         [CLSCompliantAttribute(false)]
         public EasySettingsAttribute(string categoryName, sbyte defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -90,8 +81,8 @@ namespace RA.Library.EasySettings {
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         public EasySettingsAttribute(string categoryName, char defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -101,8 +92,8 @@ namespace RA.Library.EasySettings {
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         public EasySettingsAttribute(string categoryName, decimal defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -112,8 +103,8 @@ namespace RA.Library.EasySettings {
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         public EasySettingsAttribute(string categoryName, double defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -123,8 +114,8 @@ namespace RA.Library.EasySettings {
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         public EasySettingsAttribute(string categoryName, float defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -134,8 +125,8 @@ namespace RA.Library.EasySettings {
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         public EasySettingsAttribute(string categoryName, int defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -146,8 +137,8 @@ namespace RA.Library.EasySettings {
         /// <param name="defaultValue">The setting default value.</param>
         [CLSCompliantAttribute(false)]
         public EasySettingsAttribute(string categoryName, uint defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -157,8 +148,8 @@ namespace RA.Library.EasySettings {
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         public EasySettingsAttribute(string categoryName, long defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -169,8 +160,8 @@ namespace RA.Library.EasySettings {
         /// <param name="defaultValue">The setting default value.</param>
         [CLSCompliantAttribute(false)]
         public EasySettingsAttribute(string categoryName, ulong defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -180,8 +171,8 @@ namespace RA.Library.EasySettings {
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         public EasySettingsAttribute(string categoryName, short defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -192,8 +183,8 @@ namespace RA.Library.EasySettings {
         /// <param name="defaultValue">The setting default value.</param>
         [CLSCompliantAttribute(false)]
         public EasySettingsAttribute(string categoryName, ushort defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -203,8 +194,8 @@ namespace RA.Library.EasySettings {
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         public EasySettingsAttribute(string categoryName, string defaultValue) {
-            this.categoryName = categoryName;
-            this.defaultValue = defaultValue;
+            CategoryName = categoryName;
+            DefaultValue = defaultValue;
         }
 
         /// <summary>
@@ -212,14 +203,14 @@ namespace RA.Library.EasySettings {
         /// name and converting the specified default value of the specified value type using the invariant culture.
         /// </summary>
         public EasySettingsAttribute(String categoryName, Type valueType, object defaultValue) {
-            this.categoryName = categoryName;
+            CategoryName = categoryName;
 
             // Convert default value from invariant string if not null or of enumerated type
             if(defaultValue != null && !valueType.IsEnum) {
-                this.defaultValue = TypeDescriptor.GetConverter(valueType).ConvertFromInvariantString(
+                DefaultValue = TypeDescriptor.GetConverter(valueType).ConvertFromInvariantString(
                     (string)defaultValue);
             } else {
-                this.defaultValue = defaultValue;
+                DefaultValue = defaultValue;
             }
         }
 
