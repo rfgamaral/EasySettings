@@ -202,16 +202,28 @@ namespace RA.Library.EasySettings {
         /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
         /// name and converting the specified default value of the specified value type using the invariant culture.
         /// </summary>
-        public EasySettingsAttribute(String categoryName, Type valueType, object defaultValue) {
+        public EasySettingsAttribute(string categoryName, Type valueType, object defaultValue) {
             CategoryName = categoryName;
 
-            // Convert default value from invariant string if not null or of enumerated type
-            if(defaultValue != null && !valueType.IsEnum) {
-                DefaultValue = TypeDescriptor.GetConverter(valueType).ConvertFromInvariantString(
-                    (string)defaultValue);
-            } else {
-                DefaultValue = defaultValue;
+            // Return immediately if default value was not specified (defaults to dynamic default value)
+            if(defaultValue == null) {
+                return;
             }
+
+            // Use the default value directly if it's of the same enumerated type as the property
+            if(valueType.IsEnum) {
+                if(defaultValue.GetType() != valueType) {
+                    throw new ArgumentException(
+                        "Default value must be of the same enumerated type as the property.", "defaultValue");
+                }
+
+                DefaultValue = defaultValue;
+
+                return;
+            }
+
+            // Convert the default value from an invariant string from a native type converter
+            DefaultValue = TypeDescriptor.GetConverter(valueType).ConvertFromInvariantString((string)defaultValue);
         }
 
         #endregion
