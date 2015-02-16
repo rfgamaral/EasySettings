@@ -306,7 +306,7 @@ namespace RA.Library.EasySettings {
             // Is the XML root element valid?
             if(!Regex.Match(xmlRootElement, @"^[a-z_:][a-z0-9.-_:]+$", RegexOptions.IgnoreCase).Success) {
                 throw new ArgumentException("The supplied root element is invalid according to the W3C " +
-                    "recommendation for XML documents.");
+                    "recommendation for XML documents.", xmlRootElement);
             }
 
             // Set the XML file path and root element
