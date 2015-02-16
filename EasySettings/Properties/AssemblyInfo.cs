@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Simple .NET library to easily manage applications user preferences.")]
 [assembly: AssemblyCompany("Ricardo Amaral")]
 [assembly: AssemblyProduct("EasySettings")]
-[assembly: AssemblyCopyright("Copyright © 2008-2014 Ricardo Amaral")]
+[assembly: AssemblyCopyright("Copyright © 2008-2015 Ricardo Amaral")]
 
 [assembly: ComVisible(false)]
 

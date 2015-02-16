@@ -1,4 +1,4 @@
-﻿#region Copyright © 2008-2014 Ricardo Amaral
+﻿#region Copyright © 2008-2015 Ricardo Amaral
 
 /*
  * Use of this source code is governed by an MIT-style license that can be found in the LICENSE file.
