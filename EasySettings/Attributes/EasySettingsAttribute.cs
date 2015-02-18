@@ -214,7 +214,8 @@ namespace RA.Library.EasySettings {
             if(valueType.IsEnum) {
                 if(defaultValue.GetType() != valueType) {
                     throw new ArgumentException(
-                        "Default value must be of the same enumerated type as the property.", "defaultValue");
+                        "Default value must be of the same enumerated type as the property for enums.",
+                        "defaultValue");
                 }
 
                 DefaultValue = defaultValue;
