@@ -223,7 +223,7 @@ namespace RA.Library.EasySettings {
                 return;
             }
 
-            // Convert the default value from an invariant string from a native type converter
+            // Use a native type converter to convert the default value from an invariant string
             DefaultValue = TypeDescriptor.GetConverter(valueType).ConvertFromInvariantString((string)defaultValue);
         }
 
