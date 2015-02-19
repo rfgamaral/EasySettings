@@ -80,8 +80,8 @@ namespace RA.Library.EasySettings {
             // Loop through all properties in the Data class
             foreach(PropertyInfo propInfo in GetProperties()) {
                 // Search for the required settings attribute
-                EasySettingsAttribute propAttribute = (EasySettingsAttribute)Attribute.GetCustomAttribute(propInfo,
-                    typeof(EasySettingsAttribute));
+                EasySettingAttribute propAttribute = (EasySettingAttribute)Attribute.GetCustomAttribute(propInfo,
+                    typeof(EasySettingAttribute));
 
                 // Skip the current property if the settings attribute was not found
                 if(propAttribute == null) {
@@ -223,8 +223,8 @@ namespace RA.Library.EasySettings {
                 // Loop through all properties in the Data class
                 foreach(PropertyInfo propInfo in GetProperties()) {
                     // Search for the required settings attribute
-                    EasySettingsAttribute propAttribute = (EasySettingsAttribute)Attribute.GetCustomAttribute(propInfo,
-                        typeof(EasySettingsAttribute));
+                    EasySettingAttribute propAttribute = (EasySettingAttribute)Attribute.GetCustomAttribute(propInfo,
+                        typeof(EasySettingAttribute));
 
                     // Skip the current property if the settings attribute was not found
                     if(propAttribute == null) {
@@ -252,8 +252,8 @@ namespace RA.Library.EasySettings {
             // Loop through all properties in the Data class
             foreach(PropertyInfo propInfo in GetProperties()) {
                 // Search for the required settings attribute
-                EasySettingsAttribute propAttribute = (EasySettingsAttribute)Attribute.GetCustomAttribute(propInfo,
-                    typeof(EasySettingsAttribute));
+                EasySettingAttribute propAttribute = (EasySettingAttribute)Attribute.GetCustomAttribute(propInfo,
+                    typeof(EasySettingAttribute));
 
                 // Skip the current property if the settings attribute was not found
                 if(propAttribute == null) {

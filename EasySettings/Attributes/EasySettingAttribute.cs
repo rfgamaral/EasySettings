@@ -16,7 +16,7 @@ namespace RA.Library.EasySettings {
     /// </summary>
     [CLSCompliantAttribute(true)]
     [AttributeUsage(AttributeTargets.Property)]
-    public sealed class EasySettingsAttribute : Attribute {
+    public sealed class EasySettingAttribute : Attribute {
 
         #region Internal Properties
 
@@ -41,168 +41,168 @@ namespace RA.Library.EasySettings {
         #region Public Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.Boolean" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
-        public EasySettingsAttribute(string categoryName, bool defaultValue) {
+        public EasySettingAttribute(string categoryName, bool defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.Byte" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
-        public EasySettingsAttribute(string categoryName, byte defaultValue) {
+        public EasySettingAttribute(string categoryName, byte defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.SByte" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         [CLSCompliantAttribute(false)]
-        public EasySettingsAttribute(string categoryName, sbyte defaultValue) {
+        public EasySettingAttribute(string categoryName, sbyte defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.Char" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
-        public EasySettingsAttribute(string categoryName, char defaultValue) {
+        public EasySettingAttribute(string categoryName, char defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.Decimal" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
-        public EasySettingsAttribute(string categoryName, decimal defaultValue) {
+        public EasySettingAttribute(string categoryName, decimal defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.Double" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
-        public EasySettingsAttribute(string categoryName, double defaultValue) {
+        public EasySettingAttribute(string categoryName, double defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.Single" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
-        public EasySettingsAttribute(string categoryName, float defaultValue) {
+        public EasySettingAttribute(string categoryName, float defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.Int32" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
-        public EasySettingsAttribute(string categoryName, int defaultValue) {
+        public EasySettingAttribute(string categoryName, int defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.UInt32" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         [CLSCompliantAttribute(false)]
-        public EasySettingsAttribute(string categoryName, uint defaultValue) {
+        public EasySettingAttribute(string categoryName, uint defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.Int64" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
-        public EasySettingsAttribute(string categoryName, long defaultValue) {
+        public EasySettingAttribute(string categoryName, long defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.UInt64" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         [CLSCompliantAttribute(false)]
-        public EasySettingsAttribute(string categoryName, ulong defaultValue) {
+        public EasySettingAttribute(string categoryName, ulong defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.Int16" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
-        public EasySettingsAttribute(string categoryName, short defaultValue) {
+        public EasySettingAttribute(string categoryName, short defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.UInt16" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
         [CLSCompliantAttribute(false)]
-        public EasySettingsAttribute(string categoryName, ushort defaultValue) {
+        public EasySettingAttribute(string categoryName, ushort defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and default value of <see cref="System.String" /> type.
         /// </summary>
         /// <param name="categoryName">The setting category name.</param>
         /// <param name="defaultValue">The setting default value.</param>
-        public EasySettingsAttribute(string categoryName, string defaultValue) {
+        public EasySettingAttribute(string categoryName, string defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EasySettingsAttribute" /> class with the specified category
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and converting the specified default value of the specified value type using the invariant culture.
         /// </summary>
-        public EasySettingsAttribute(string categoryName, Type valueType, object defaultValue) {
+        public EasySettingAttribute(string categoryName, Type valueType, object defaultValue) {
             CategoryName = categoryName;
 
             // Return immediately if default value was not specified (defaults to dynamic default value)
