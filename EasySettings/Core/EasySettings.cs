@@ -124,7 +124,7 @@ namespace RA.Library.EasySettings {
 
                     // Create a new value attribute and set the key value
                     xAttribute = xDocument.CreateAttribute("Value");
-                    xAttribute.Value = ConvertToInvariantString(property);
+                    xAttribute.Value = ConvertToInvariantString(property, attribute);
 
                     // Add the value attribute to the key node
                     xKey.Attributes.SetNamedItem(xAttribute);
@@ -133,7 +133,7 @@ namespace RA.Library.EasySettings {
                     xCategory.AppendChild(xKey);
                 } else {
                     // Set the new key value to existing key node
-                    xKey.Attributes["Value"].Value = ConvertToInvariantString(property);
+                    xKey.Attributes["Value"].Value = ConvertToInvariantString(property, attribute);
                 }
             }
 
@@ -170,9 +170,9 @@ namespace RA.Library.EasySettings {
         /*
          * Converts the specified property value to a culture-invariant string representation.
          */
-        private string ConvertToInvariantString(PropertyInfo property) {
+        private string ConvertToInvariantString(PropertyInfo property, EasySettingAttribute attribute) {
             // Get the type converter for the specified property
-            TypeConverter typeConverter = TypeDescriptor.GetConverter(property.PropertyType);
+            TypeConverter typeConverter = TypeDescriptor.GetConverter(attribute.ValueType);
 
             // Return a culture-invariant string from the property value
             return typeConverter.ConvertToInvariantString(property.GetValue(Data, null));
@@ -239,7 +239,7 @@ namespace RA.Library.EasySettings {
                     }
 
                     // Set the current property value to the default one
-                    SetProperty(property, null, defaultValue);
+                    SetProperty(property, attribute, null, defaultValue);
                 }
 
                 // Do not allow the values from the XML file to load
@@ -288,7 +288,7 @@ namespace RA.Library.EasySettings {
                 }
 
                 // Set the current property value to the new or default value
-                SetProperty(property, xValue, defaultValue);
+                SetProperty(property, attribute, xValue, defaultValue);
 
                 // Reset the property default value and value to null
                 defaultValue = null;
@@ -320,14 +320,15 @@ namespace RA.Library.EasySettings {
         /*
          * Sets the value of the specified property with a new value or the default value if invalid.
          */
-        private void SetProperty(PropertyInfo property, object newValue, object defaultValue) {
+        private void SetProperty(PropertyInfo property, EasySettingAttribute attribute, object newValue,
+            object defaultValue) {
             // Convert value if not null otherwise use default
             if(newValue != null) {
                 // Get the property type code
-                TypeCode typeCode = Type.GetTypeCode(property.PropertyType);
+                TypeCode typeCode = Type.GetTypeCode(attribute.ValueType);
 
                 // Removes the property type code if it's an enumeration
-                if(property.PropertyType.IsEnum) {
+                if(attribute.ValueType.IsEnum) {
                     typeCode = TypeCode.Empty;
                 }
 
@@ -390,7 +391,7 @@ namespace RA.Library.EasySettings {
                         break;
 
                     default:
-                        TypeConverter typeConverter = TypeDescriptor.GetConverter(property.PropertyType);
+                        TypeConverter typeConverter = TypeDescriptor.GetConverter(attribute.ValueType);
                         newValue = typeConverter.ConvertFromInvariantString((string)newValue);
                         break;
                 }

@@ -36,6 +36,14 @@ namespace RA.Library.EasySettings {
             private set;
         }
 
+        /*
+         * The setting value type for the specified value.
+         */
+        internal Type ValueType {
+            get;
+            private set;
+        }
+
         #endregion
 
         #region Public Constructors
@@ -49,6 +57,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, bool defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(bool);
         }
 
         /// <summary>
@@ -60,6 +69,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, byte defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(byte);
         }
 
         /// <summary>
@@ -72,6 +82,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, sbyte defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(sbyte);
         }
 
         /// <summary>
@@ -83,6 +94,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, char defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(char);
         }
 
         /// <summary>
@@ -94,6 +106,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, decimal defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(decimal);
         }
 
         /// <summary>
@@ -105,6 +118,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, double defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(double);
         }
 
         /// <summary>
@@ -116,6 +130,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, float defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(float);
         }
 
         /// <summary>
@@ -127,6 +142,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, int defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(int);
         }
 
         /// <summary>
@@ -139,6 +155,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, uint defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(uint);
         }
 
         /// <summary>
@@ -150,6 +167,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, long defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(long);
         }
 
         /// <summary>
@@ -162,6 +180,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, ulong defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(ulong);
         }
 
         /// <summary>
@@ -173,6 +192,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, short defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(short);
         }
 
         /// <summary>
@@ -185,6 +205,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, ushort defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(ushort);
         }
 
         /// <summary>
@@ -196,6 +217,7 @@ namespace RA.Library.EasySettings {
         public EasySettingAttribute(string categoryName, string defaultValue) {
             CategoryName = categoryName;
             DefaultValue = defaultValue;
+            ValueType = typeof(string);
         }
 
         /// <summary>
@@ -204,6 +226,7 @@ namespace RA.Library.EasySettings {
         /// </summary>
         public EasySettingAttribute(string categoryName, Type valueType, object defaultValue) {
             CategoryName = categoryName;
+            ValueType = valueType;
 
             // Return immediately if default value was not specified (defaults to dynamic default value)
             if(defaultValue == null) {
