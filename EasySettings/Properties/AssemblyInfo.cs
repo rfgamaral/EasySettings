@@ -13,8 +13,8 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("ca8fa5e2-2aa3-4db5-be13-33c1d274b6d3")]
 
-[assembly: AssemblyVersion("1.2.14305.2220")]
-[assembly: AssemblyFileVersion("1.2.14305.2220")]
+[assembly: AssemblyVersion("1.3.15050.0115")]
+[assembly: AssemblyFileVersion("1.3.15050.0115")]
 
 [assembly: NeutralResourcesLanguageAttribute("en")]
 [assembly: CLSCompliant(true)]

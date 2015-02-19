@@ -1,3 +1,11 @@
+# Version 1.3.15050.0115
+
+#### 2015/02/19
+
+ - Add support for custom `TypeConverter` implementations.
+ - Rename attribute to `EasySettingAttribute`.
+ - Minor improvements and quick fixes.
+
 # Version 1.2.14305.2220
 
 #### 2014/11/01
