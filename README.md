@@ -12,6 +12,7 @@ This library was built to be as easy and straightforward to use by simply placin
  - Use attributes to define the setting category and default value.
  - Supports both static and dynamic default values for any type.
  - Supports all simple types and any type supported by `TypeConverter`.
+ - Supports custom `TypeConverter` implementations for non supported types.
  - Sorts both the categories and keys in the XML file alphabetically.
  - Save all application settings by calling a single method.
 
