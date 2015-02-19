@@ -78,18 +78,18 @@ namespace RA.Library.EasySettings {
             XmlNode xCategory, xKey;
 
             // Loop through all properties in the Data class
-            foreach(PropertyInfo propInfo in GetProperties()) {
-                // Search for the required settings attribute
-                EasySettingAttribute propAttribute = (EasySettingAttribute)Attribute.GetCustomAttribute(propInfo,
+            foreach(PropertyInfo property in GetProperties()) {
+                // Search for the required setting attribute
+                EasySettingAttribute attribute = (EasySettingAttribute)Attribute.GetCustomAttribute(property,
                     typeof(EasySettingAttribute));
 
-                // Skip the current property if the settings attribute was not found
-                if(propAttribute == null) {
+                // Skip the current property if the setting attribute was not found
+                if(attribute == null) {
                     continue;
                 }
 
                 // Select the XML node with the specified category name
-                xCategory = xDocument.SelectSingleNode("//Category[@Name='" + propAttribute.CategoryName + "']");
+                xCategory = xDocument.SelectSingleNode("//Category[@Name='" + attribute.CategoryName + "']");
 
                 // Create the XML category node if it doesn't already exist
                 if(xCategory == null) {
@@ -98,7 +98,7 @@ namespace RA.Library.EasySettings {
 
                     // Create a new name attribute and set the category name
                     xAttribute = xDocument.CreateAttribute("Name");
-                    xAttribute.Value = propAttribute.CategoryName;
+                    xAttribute.Value = attribute.CategoryName;
 
                     // Add the name attribute to the category node
                     xCategory.Attributes.SetNamedItem(xAttribute);
@@ -108,7 +108,7 @@ namespace RA.Library.EasySettings {
                 }
 
                 // Select the XML node with the specified key name
-                xKey = xCategory.SelectSingleNode("descendant::Key[@Name='" + propInfo.Name + "']");
+                xKey = xCategory.SelectSingleNode("descendant::Key[@Name='" + property.Name + "']");
 
                 // Create the XML key node if it doesn't already exist
                 if(xKey == null) {
@@ -117,14 +117,14 @@ namespace RA.Library.EasySettings {
 
                     // Create a new name attribute and set the key name
                     xAttribute = xDocument.CreateAttribute("Name");
-                    xAttribute.Value = propInfo.Name;
+                    xAttribute.Value = property.Name;
 
                     // Add the name attribute to the key node
                     xKey.Attributes.SetNamedItem(xAttribute);
 
                     // Create a new value attribute and set the key value
                     xAttribute = xDocument.CreateAttribute("Value");
-                    xAttribute.Value = ConvertToInvariantString(propInfo);
+                    xAttribute.Value = ConvertToInvariantString(property);
 
                     // Add the value attribute to the key node
                     xKey.Attributes.SetNamedItem(xAttribute);
@@ -133,7 +133,7 @@ namespace RA.Library.EasySettings {
                     xCategory.AppendChild(xKey);
                 } else {
                     // Set the new key value to existing key node
-                    xKey.Attributes["Value"].Value = ConvertToInvariantString(propInfo);
+                    xKey.Attributes["Value"].Value = ConvertToInvariantString(property);
                 }
             }
 
@@ -170,28 +170,28 @@ namespace RA.Library.EasySettings {
         /*
          * Converts the specified property value to a culture-invariant string representation.
          */
-        private string ConvertToInvariantString(PropertyInfo propInfo) {
+        private string ConvertToInvariantString(PropertyInfo property) {
             // Get the type converter for the specified property
-            TypeConverter typeConverter = TypeDescriptor.GetConverter(propInfo.PropertyType);
+            TypeConverter typeConverter = TypeDescriptor.GetConverter(property.PropertyType);
 
             // Return a culture-invariant string from the property value
-            return typeConverter.ConvertToInvariantString(propInfo.GetValue(Data, null));
+            return typeConverter.ConvertToInvariantString(property.GetValue(Data, null));
         }
 
         /*
          * Gets the dynamic default value matching the property name from the internal Defaults class.
          */
-        private object GetDynamicDefaultValue(string propName) {
+        private object GetDynamicDefaultValue(string propertyName) {
             // Get the Defaults nested type if it exists
             Type defaults = Data.GetType().GetNestedType("Defaults", BindingFlags.Public | BindingFlags.NonPublic |
                 BindingFlags.Static);
 
             // Get the property specified by name
-            PropertyInfo propInfo = defaults.GetProperty(propName, BindingFlags.Public | BindingFlags.NonPublic |
+            PropertyInfo property = defaults.GetProperty(propertyName, BindingFlags.Public | BindingFlags.NonPublic |
                 BindingFlags.Static);
 
             // Return the default value from the specified property
-            return propInfo.GetValue(null, null);
+            return property.GetValue(null, null);
         }
 
         /*
@@ -221,25 +221,25 @@ namespace RA.Library.EasySettings {
                 xtr.Close();
             } catch {
                 // Loop through all properties in the Data class
-                foreach(PropertyInfo propInfo in GetProperties()) {
-                    // Search for the required settings attribute
-                    EasySettingAttribute propAttribute = (EasySettingAttribute)Attribute.GetCustomAttribute(propInfo,
+                foreach(PropertyInfo property in GetProperties()) {
+                    // Search for the required setting attribute
+                    EasySettingAttribute attribute = (EasySettingAttribute)Attribute.GetCustomAttribute(property,
                         typeof(EasySettingAttribute));
 
-                    // Skip the current property if the settings attribute was not found
-                    if(propAttribute == null) {
+                    // Skip the current property if the setting attribute was not found
+                    if(attribute == null) {
                         continue;
                     }
 
                     // Get the current property default value either if it's dynamic or not
-                    if(propAttribute.DefaultValue == null) {
-                        defaultValue = GetDynamicDefaultValue(propInfo.Name);
+                    if(attribute.DefaultValue == null) {
+                        defaultValue = GetDynamicDefaultValue(property.Name);
                     } else {
-                        defaultValue = propAttribute.DefaultValue;
+                        defaultValue = attribute.DefaultValue;
                     }
 
                     // Set the current property value to the default one
-                    SetProperty(propInfo, null, defaultValue);
+                    SetProperty(property, null, defaultValue);
                 }
 
                 // Do not allow the values from the XML file to load
@@ -250,23 +250,23 @@ namespace RA.Library.EasySettings {
             string xValue = null;
 
             // Loop through all properties in the Data class
-            foreach(PropertyInfo propInfo in GetProperties()) {
-                // Search for the required settings attribute
-                EasySettingAttribute propAttribute = (EasySettingAttribute)Attribute.GetCustomAttribute(propInfo,
+            foreach(PropertyInfo property in GetProperties()) {
+                // Search for the required setting attribute
+                EasySettingAttribute attribute = (EasySettingAttribute)Attribute.GetCustomAttribute(property,
                     typeof(EasySettingAttribute));
 
-                // Skip the current property if the settings attribute was not found
-                if(propAttribute == null) {
+                // Skip the current property if the setting attribute was not found
+                if(attribute == null) {
                     continue;
                 }
 
                 // Select the XML node with the specified category name
-                xCategory = xDocument.SelectSingleNode("//Category[@Name='" + propAttribute.CategoryName + "']");
+                xCategory = xDocument.SelectSingleNode("//Category[@Name='" + attribute.CategoryName + "']");
 
                 // Does the category node exist?
                 if(xCategory != null) {
                     // Select the XML node with the specified key name
-                    xKey = xCategory.SelectSingleNode("descendant::Key[@Name='" + propInfo.Name + "']");
+                    xKey = xCategory.SelectSingleNode("descendant::Key[@Name='" + property.Name + "']");
 
                     // Does the key node exist?
                     if(xKey != null) {
@@ -281,14 +281,14 @@ namespace RA.Library.EasySettings {
                 }
 
                 // Get the current property default value either if it's dynamic or not
-                if(propAttribute.DefaultValue == null) {
-                    defaultValue = GetDynamicDefaultValue(propInfo.Name);
+                if(attribute.DefaultValue == null) {
+                    defaultValue = GetDynamicDefaultValue(property.Name);
                 } else {
-                    defaultValue = propAttribute.DefaultValue;
+                    defaultValue = attribute.DefaultValue;
                 }
 
                 // Set the current property value to the new or default value
-                SetProperty(propInfo, xValue, defaultValue);
+                SetProperty(property, xValue, defaultValue);
 
                 // Reset the property default value and value to null
                 defaultValue = null;
@@ -320,14 +320,14 @@ namespace RA.Library.EasySettings {
         /*
          * Sets the value of the specified property with a new value or the default value if invalid.
          */
-        private void SetProperty(PropertyInfo propInfo, object newValue, object defaultValue) {
+        private void SetProperty(PropertyInfo property, object newValue, object defaultValue) {
             // Convert value if not null otherwise use default
             if(newValue != null) {
                 // Get the property type code
-                TypeCode typeCode = Type.GetTypeCode(propInfo.PropertyType);
+                TypeCode typeCode = Type.GetTypeCode(property.PropertyType);
 
                 // Removes the property type code if it's an enumeration
-                if(propInfo.PropertyType.IsEnum) {
+                if(property.PropertyType.IsEnum) {
                     typeCode = TypeCode.Empty;
                 }
 
@@ -390,7 +390,7 @@ namespace RA.Library.EasySettings {
                         break;
 
                     default:
-                        TypeConverter typeConverter = TypeDescriptor.GetConverter(propInfo.PropertyType);
+                        TypeConverter typeConverter = TypeDescriptor.GetConverter(property.PropertyType);
                         newValue = typeConverter.ConvertFromInvariantString((string)newValue);
                         break;
                 }
@@ -399,7 +399,7 @@ namespace RA.Library.EasySettings {
             }
 
             // Set the specified property value to the new one
-            propInfo.SetValue(Data, newValue, null);
+            property.SetValue(Data, newValue, null);
         }
 
         #endregion
