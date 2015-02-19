@@ -222,6 +222,15 @@ namespace RA.Library.EasySettings {
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
+        /// name and the specified value type with a dynamic default value.
+        /// </summary>
+        public EasySettingAttribute(string categoryName, Type valueType)
+            : this(categoryName, valueType, null) {
+            // No construction required
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EasySettingAttribute" /> class with the specified category
         /// name and converting the specified default value of the specified value type using the invariant culture.
         /// </summary>
         public EasySettingAttribute(string categoryName, Type valueType, object defaultValue) {
